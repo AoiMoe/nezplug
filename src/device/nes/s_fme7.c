@@ -4,7 +4,7 @@
 #include "../../format/handler.h"
 #include "../../format/nsf6502.h"
 #include "logtable.h"
-#include "m_nsf.h"
+#include "../../format/m_nsf.h"
 #include "s_fme7.h"
 #include "../s_psg.h"
 
@@ -27,6 +27,7 @@ static Int32 __fastcall PSGSoundRender(void* pNezPlay)
 	return b[0]*FME7_VOL;
 }
 
+#if 0
 static void __fastcall PSGSoundRender2(void* pNezPlay, Int32 *d)
 {
 	PSGSOUND *psgs = ((NSFNSF*)((NEZ_PLAY*)pNezPlay)->nsf)->psgs;
@@ -35,6 +36,7 @@ static void __fastcall PSGSoundRender2(void* pNezPlay, Int32 *d)
 	d[0] += b[0]*FME7_VOL;
 	d[1] += b[0]*FME7_VOL;
 }
+#endif
 
 const static NES_AUDIO_HANDLER s_psg_audio_handler[] = {
 	{ 1, PSGSoundRender}, 
@@ -53,11 +55,13 @@ const static NES_VOLUME_HANDLER s_psg_volume_handler[] = {
 	{ 0, }, 
 };
 
+#if 0
 static Uint __fastcall PSGSoundReadData(void *pNezPlay, Uint address)
 {
 	PSGSOUND *psgs = ((NSFNSF*)((NEZ_PLAY*)pNezPlay)->nsf)->psgs;
 	return psgs->psgp->read(psgs->psgp->ctx, 0);
 }
+#endif
 
 static void __fastcall PSGSoundWrireAddr(void *pNezPlay, Uint address, Uint value)
 {

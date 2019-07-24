@@ -1,5 +1,5 @@
-#include "../nestypes.h"
-#include "s_logtbl.h"
+#include "nestypes.h"
+#include "device/s_logtbl.h"
 #include "s_opltbl.h"
 
 // https://docs.google.com/Doc?docid=0Aeywjj51RsmGZGQ4a3FuOWZfMTNjcWprZjRncA&hl=en&pli=1 Ç©ÇÁéÊÇ¡ÇƒÇ´ÇΩÅB
@@ -594,7 +594,7 @@ static void OplTableRelease(void *ctx)
 	++opl_tables_mutex;
 	while (opl_tables_mutex != 1)
 	{
-		XSLEEP(0);
+		CONTEXT_SWITCH();
 	}
 	opl_tables_refcount--;
 	if (!opl_tables_refcount)
@@ -695,7 +695,7 @@ KMIF_OPLTABLE *OplTableAddRef()
 	++opl_tables_mutex;
 	while (opl_tables_mutex != 1)
 	{
-		XSLEEP(0);
+		CONTEXT_SWITCH();
 	}
 	if (!opl_tables_refcount)
 	{

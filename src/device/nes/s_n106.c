@@ -4,7 +4,7 @@
 #include "../../format/handler.h"
 #include "../../format/nsf6502.h"
 #include "logtable.h"
-#include "m_nsf.h"
+#include "../../format/m_nsf.h"
 #include "s_n106.h"
 
 #define NES_BASECYCLES (21477270)
@@ -370,11 +370,13 @@ static Uint __fastcall N106SoundReadData(void *pNezPlay, Uint address)
 	return ret;
 }
 
+#if 0
 static Uint __fastcall N106SoundReadDataDebug(void *pNezPlay, Uint address)
 {
 	N106SOUND *n106s = ((NSFNSF*)((NEZ_PLAY*)pNezPlay)->nsf)->n106s;
 	return n106s->data[address & 0x7f];
 }
+#endif
 
 static NES_READ_HANDLER s_n106_read_handler[] =
 {

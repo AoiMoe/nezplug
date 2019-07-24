@@ -225,7 +225,7 @@ enum {
 	ADR_MAX
 } KMZ80_OP_ADR;
 
-typedef struct {
+typedef struct KMZ80_OPT_ITEM_TAG {
 	Uint8 post;
 	Uint8 pre;
 	Uint8 adr;
@@ -236,8 +236,8 @@ typedef struct {
 #define OPTABLENOP4 OPTABLENOP,OPTABLENOP,OPTABLENOP,OPTABLENOP
 #define OPTABLENOP16 OPTABLENOP4,OPTABLENOP4,OPTABLENOP4,OPTABLENOP4
 
-#define RTO8(d) (d & 0xff)
-#define RTO16(d) (d & 0xffff)
+#define RTO8(d) ((d) & 0xff)
+#define RTO16(d) ((d) & 0xffff)
 
 #define BC (C + (B << 8))
 #define B (context->regs8[REGID_B])
@@ -259,7 +259,7 @@ typedef struct {
 #define IYL (context->regs8[REGID_IYL])
 #define R (context->regs8[REGID_R])
 #define R7 (context->regs8[REGID_R7])
-#define I (context->regs8[REGID_R7])
+#define I (context->regs8[REGID_I])
 #define IFF1 (context->regs8[REGID_IFF1])
 #define IFF2 (context->regs8[REGID_IFF2])
 #define IMODE (context->regs8[REGID_IMODE])
@@ -288,10 +288,10 @@ typedef struct {
 #define TOP (context->t_op)
 #define TAD (context->t_ad)
 #define CYCLE (context->cycle)
-#define OPT ((const OPT_ITEM *)context->opt)
-#define OPTCB ((const Uint8 *)context->optcb)
-#define OPTED ((const OPT_ITEM *)context->opted)
-#define CYT ((const Uint8 *)context->cyt)
+#define OPT (context->opt)
+#define OPTCB (context->optcb)
+#define OPTED (context->opted)
+#define CYT (context->cyt)
 #define MEMPAGE (context->mempage)
 #define VECTOR (context->vector)
 #define RSTBASE (context->rstbase)

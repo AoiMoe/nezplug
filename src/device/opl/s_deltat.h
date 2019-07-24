@@ -1,7 +1,7 @@
 #ifndef S_DELTAT_H__
 #define S_DELTAT_H__
 
-#include "kmsnddev.h"
+#include "device/kmsnddev.h"
 
 #ifdef __cplusplus
 extern "C" {

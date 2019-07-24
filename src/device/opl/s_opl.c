@@ -13,9 +13,9 @@
 */
 
 
-#include "kmsnddev.h"
-#include "divfix.h"
-#include "s_logtbl.h"
+#include "device/kmsnddev.h"
+#include "device/divfix.h"
+#include "device/s_logtbl.h"
 #include "s_opltbl.h"
 #include "s_opl.h"
 #include "s_deltat.h"
@@ -270,10 +270,10 @@ __inline static void SetOpOff(OPL_OP *opp)
 
 __inline static Int32 CalcOutputBuffer(Int32 output, Int32 *outputbf){
 	Uint8 a;
-	Int64 buffer,c;
+	Int64 buffer;
 	for(a=OUTPUT_BUFFER-1;a>0;a--) outputbf[a]=outputbf[a-1];
 	outputbf[0] = output;
-	buffer=0;c=0;
+	buffer=0;
 	for(a=0;a<OUTPUT_BUFFER;a++)buffer+=outputbf[a];
 	return buffer/OUTPUT_BUFFER;
 }
@@ -632,7 +632,7 @@ static Int32 __fastcall OpSynthSnr(OPLSOUND *sndp, OPL_OP *opp, OPL_OP *opp2)
 	if (opp2->enable)
 	{
 		Uint32 tll;
-		Int32 output=0,outval;
+		Int32 outval;
 
 		tll = opp2->tll + (opp2->eg.phase / EG_SHIFT2);
 		tll = (tll >= (1 << TLLTBL_BITS)-16) ? LOG_KEYOFF : sndp->common.tll2logtbl[tll];
@@ -656,7 +656,7 @@ __inline static void LfoStep(OPL_LFO *lfop)
 
 static void sndsynth(OPLSOUND *sndp, Int32 *p)
 {
-	long accum[2] = { 0, 0 };
+	Int32 accum[2] = { 0, 0 };
 //	int i = 0 ,count;
 //	count = (FM_FREQ-sndp->freqp)/sndp->freq;
 //	if(count){
@@ -1286,7 +1286,7 @@ static Uint32 oplread(OPLSOUND *sndp, Uint32 a)
 
 __inline static void opllwritereg(OPLSOUND *sndp, Uint32 a, Uint32 v)
 {
-	char b;
+	int b;
 	switch (a >> 3)
 	{
 		default:

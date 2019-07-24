@@ -36,14 +36,16 @@ typedef char			Char;
 
 #include <malloc.h>
 #include <memory.h>
+#include <stdlib.h>
 
 #ifdef WIN32
-#include <stdlib.h>
-#define XSLEEP(t)		_sleep(t)
+#define CONTEXT_SWITCH()	_sleep(0)
+#elif defined(__unix__)
+#include <unistd.h>
+#define CONTEXT_SWITCH()	sleep(0)
 #else
 #include <windows.h>
-#include <stdlib.h>
-#define XSLEEP(t)		sleep(t)
+#define CONTEXT_SWITCH()	sleep(0)
 #endif
 #define XMALLOC(s)		malloc(s)
 #define XREALLOC(p,s)	realloc(p,s)

@@ -50,7 +50,7 @@ void dox(int pc, int i, int af, int bc, int de, int hl ,int sp)
 #define DEBUG_OUTPUT(i) {}
 #endif
 
-extern Uint8 flagtable[0x200] = {
+Uint8 flagtable[0x200] = {
 /*
   0 <= i <= 0x1ff
   CF(bit0) (i > 0xff)
@@ -183,7 +183,7 @@ static Uint32 kmz80_fetch_im0(KMZ80_CONTEXT *context) {
 }
 
 void kmz80_reset_common(KMZ80_CONTEXT *context) {
-	B = C = D = E = F = H = L = A = F = IXH = IXL = IYH = IYL = 0;
+	B = C = D = E = F = H = L = A = IXH = IXL = IYH = IYL = 0;
 	R = R7 = I = IFF1 = IFF2 = IMODE = NMIREQ = INTREQ = HALTED = STATE = FDMG = 0;
 	M1CYCLE = 0;
 	MEMCYCLE = 3;

@@ -4,7 +4,7 @@
 #include "../../format/handler.h"
 #include "../../format/nsf6502.h"
 #include "logtable.h"
-#include "m_nsf.h"
+#include "../../format/m_nsf.h"
 #include "s_apu.h"
 #include <time.h>
 #include <math.h>
@@ -1062,8 +1062,8 @@ static void NESAPUSoundDpcmReset(void *pNezPlay, NESAPU_DPCM *ch)
 
 static void __fastcall APUSoundReset(void* pNezPlay)
 {
-	APUSOUND *apu = ((NSFNSF*)((NEZ_PLAY*)pNezPlay)->nsf)->apu;
 	NSFNSF *nsf = (NSFNSF*)((NEZ_PLAY*)pNezPlay)->nsf;
+	APUSOUND *apu = nsf->apu;
 	Uint32 i;
 	NESAPUSoundSquareReset(pNezPlay, &apu->square[0]);
 	NESAPUSoundSquareReset(pNezPlay, &apu->square[1]);

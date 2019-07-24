@@ -33,7 +33,7 @@ static void LogTableRelease(void *ctx)
 	++log_tables_mutex;
 	while (log_tables_mutex != 1)
 	{
-		XSLEEP(0);
+		CONTEXT_SWITCH();
 	}
 	log_tables_refcount--;
 	if (!log_tables_refcount)
@@ -68,7 +68,7 @@ KMIF_LOGTABLE *LogTableAddRef(void)
 	++log_tables_mutex;
 	while (log_tables_mutex != 1)
 	{
-		XSLEEP(0);
+		CONTEXT_SWITCH();
 	}
 	if (!log_tables_refcount)
 	{

@@ -9,7 +9,7 @@
 #include "device/opl/s_opl.h"
 #include "device/divfix.h"
 
-#include "kmz80/kmz80.h"
+#include "cpu/kmz80/kmz80.h"
 
 #include <stdio.h>
 
@@ -300,7 +300,6 @@ Uint32 memview_memread_sgc(Uint32 a){
 //ここまでメモリービュアー設定
 
 //ここからダンプ設定
-static NEZ_PLAY *pNezPlayDump;
 Uint32 (*dump_MEM_MSX)(Uint32 a,unsigned char* mem);
 static Uint32 dump_MEM_MSX_bf(Uint32 menu,unsigned char* mem){
 	int i;
@@ -636,15 +635,15 @@ RAM Bank      (8000-BFFF): %d\r\n\
 
 	XMEMSET(titlebuffer, 0, 0x21);
 	XMEMCPY(titlebuffer, pData + 0x0040, 0x20);
-	songinfodata.title=titlebuffer;
+	songinfodata.title=(char *)titlebuffer;
 
 	XMEMSET(artistbuffer, 0, 0x21);
 	XMEMCPY(artistbuffer, pData + 0x0060, 0x20);
-	songinfodata.artist=artistbuffer;
+	songinfodata.artist=(char *)artistbuffer;
 
 	XMEMSET(copyrightbuffer, 0, 0x21);
 	XMEMCPY(copyrightbuffer, pData + 0x0080, 0x20);
-	songinfodata.copyright=copyrightbuffer;
+	songinfodata.copyright=(char *)copyrightbuffer;
 
 	//ここからダンプ設定
 	dump_MEM_MSX     = dump_MEM_MSX_bf;
