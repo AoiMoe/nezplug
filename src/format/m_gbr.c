@@ -7,7 +7,7 @@
 #include "device/s_dmg.h"
 #include "device/divfix.h"
 
-#include "kmz80/kmz80.h"
+#include "cpu/kmz80/kmz80.h"
 #include <stdio.h>
 #define SHIFT_CPS 15
 
@@ -175,10 +175,12 @@ static void vsync_setup(GBRDMG *THIS_)
 	kmevent_settimer(&THIS_->kme, THIS_->vsync, THIS_->isCGB ? (154 * 456 * 2) : (154 * 456));
 }
 
+#if 0
 static void vsync_setup2(GBRDMG *THIS_)
 {
 	kmevent_settimer(&THIS_->kme, THIS_->vsync, 1);
 }
+#endif
 
 static void timer_setup(GBRDMG *THIS_)
 {
@@ -192,6 +194,7 @@ static void timer_setup(GBRDMG *THIS_)
 	}
 }
 
+#if 0
 static void timer_setup2(GBRDMG *THIS_)
 {
 	if (THIS_->gb_TMC & 0x4)
@@ -203,6 +206,7 @@ static void timer_setup2(GBRDMG *THIS_)
 		kmevent_settimer(&THIS_->kme, THIS_->timer, 0);
 	}
 }
+#endif
 
 static void timer_update_TIMA(GBRDMG *THIS_)
 {
@@ -915,13 +919,13 @@ static Uint32 load(NEZ_PLAY *pNezPlay, GBRDMG *THIS_, Uint8 *pData, Uint32 uSize
 
 		XMEMSET(THIS_->titlebuffer, 0, 0x21);
 		XMEMCPY(THIS_->titlebuffer, pData + 0x0134, 0x10);
-		songinfodata.title=THIS_->titlebuffer;
+		songinfodata.title=(char *)THIS_->titlebuffer;
 
 		XMEMSET(THIS_->artistbuffer, 0, 0x21);
-		songinfodata.artist=THIS_->artistbuffer;
+		songinfodata.artist=(char *)THIS_->artistbuffer;
 
 		XMEMSET(THIS_->copyrightbuffer, 0, 0x21);
-		songinfodata.copyright=THIS_->copyrightbuffer;
+		songinfodata.copyright=(char *)THIS_->copyrightbuffer;
 
 		sprintf(songinfodata.detail,
 "Type               : GBRF\r\n\
@@ -988,15 +992,15 @@ First TMC          : %02XH"
 
 		XMEMSET(THIS_->titlebuffer, 0, 0x21);
 		XMEMCPY(THIS_->titlebuffer, pData + 0x0010, 0x20);
-		songinfodata.title=THIS_->titlebuffer;
+		songinfodata.title=(char *)THIS_->titlebuffer;
 
 		XMEMSET(THIS_->artistbuffer, 0, 0x21);
 		XMEMCPY(THIS_->artistbuffer, pData + 0x0030, 0x20);
-		songinfodata.artist=THIS_->artistbuffer;
+		songinfodata.artist=(char *)THIS_->artistbuffer;
 
 		XMEMSET(THIS_->copyrightbuffer, 0, 0x21);
 		XMEMCPY(THIS_->copyrightbuffer, pData + 0x0050, 0x20);
-		songinfodata.copyright=THIS_->copyrightbuffer;
+		songinfodata.copyright=(char *)THIS_->copyrightbuffer;
 
 		sprintf(songinfodata.detail,
 "Type              : GBS\r\n\

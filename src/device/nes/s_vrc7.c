@@ -4,7 +4,7 @@
 #include "../../format/handler.h"
 #include "../../format/nsf6502.h"
 #include "logtable.h"
-#include "m_nsf.h"
+#include "../../format/m_nsf.h"
 #include "s_vrc7.h"
 
 #define MASTER_CLOCK        (3579545)
@@ -63,11 +63,13 @@ static Int32 __fastcall OPLLSoundRender(void* pNezPlay)
 	return b[0]*VRC7_VOL;
 }
 
+#if 0
 static void __fastcall OPLLSoundRender2(void* pNezPlay, Int32 *d)
 {
 	OPLLSOUND_INTF *sndp = ((NSFNSF*)((NEZ_PLAY*)pNezPlay)->nsf)->sndp;
 	sndp->kmif->synth(sndp->kmif->ctx, d);
 }
+#endif
 
 
 const static NES_AUDIO_HANDLER s_opll_audio_handler[] = {
@@ -128,11 +130,13 @@ static void __fastcall OPLLSoundWriteData(void *pNezPlay, Uint32 address, Uint32
 	sndp->kmif->write(sndp->kmif->ctx, 1, value);
 }
 
+#if 0
 static Uint32 __fastcall MSXAUDIOSoundRead(void *pNezPlay, Uint32 address)
 {
 	OPLLSOUND_INTF *sndp = ((NSFNSF*)((NEZ_PLAY*)pNezPlay)->nsf)->sndp;
 	return sndp->kmif->read(sndp->kmif->ctx, address);
 }
+#endif
 
 
 static NES_WRITE_HANDLER s_vrc7_write_handler[] =

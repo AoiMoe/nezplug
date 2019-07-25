@@ -11,7 +11,7 @@
 #include "device/opl/s_opl.h"
 #include "device/divfix.h"
 
-#include "kmz80/kmz80.h"
+#include "cpu/kmz80/kmz80.h"
 
 #include <stdio.h>
 
@@ -354,7 +354,6 @@ Uint32 memview_memread_kss(Uint32 a){
 //ここまでメモリービュアー設定
 
 //ここからダンプ設定
-static NEZ_PLAY *pNezPlayDump;
 Uint32 (*dump_MEM_MSX)(Uint32 a,unsigned char* mem);
 static Uint32 dump_MEM_MSX_bf(Uint32 menu,unsigned char* mem){
 	int i;

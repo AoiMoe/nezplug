@@ -4,7 +4,7 @@
 #include "../../format/handler.h"
 #include "../../format/nsf6502.h"
 #include "logtable.h"
-#include "m_nsf.h"
+#include "../../format/m_nsf.h"
 #include "s_fds.h"
 
 #define NES_BASECYCLES (21477270)
@@ -233,7 +233,7 @@ static void __fastcall FDSSoundReset(void *pNezPlay)
 {
 	FDSSOUND *fdssound = ((NSFNSF*)((NEZ_PLAY*)pNezPlay)->nsf)->fdssound;
 	Uint32 i, cps, cpf;
-	XMEMSET(&fdssound, 0, sizeof(FDSSOUND));
+	XMEMSET(fdssound, 0, sizeof(FDSSOUND));
 	cps = DivFix(NES_BASECYCLES, 12 * NESAudioFrequencyGet(pNezPlay), CPS_BITS);
 	cpf = DivFix(NES_BASECYCLES, 12 * NESAudioFrequencyGet(pNezPlay), CPF_BITS);
 	fdssound->op[0].cps = fdssound->op[1].cps = cps;

@@ -5,7 +5,6 @@
 /* critical section object (ANSI-C) */
 unsigned CriticalSectionEnter(void *a)
 {
-	volatile long *p = a;
 	if (--*(volatile long *)a == 0) return 1;
 	++*(volatile long *)a;
 	return 0;

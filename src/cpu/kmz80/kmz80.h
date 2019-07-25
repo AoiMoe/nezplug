@@ -68,13 +68,13 @@ struct KMZ80_CONTEXT_TAG {
 	/* サイクルカウンタ */
 	Uint32 cycle;
 	/* オペコードテーブル */
-	void *opt;
+	const struct KMZ80_OPT_ITEM_TAG *opt;
 	/* オペコードCBテーブル */
-	void *optcb;
+	const Uint8 *optcb;
 	/* オペコードEDテーブル */
-	void *opted;
+	const struct KMZ80_OPT_ITEM_TAG *opted;
 	/* 追加サイクルテーブル */
-	void *cyt;
+	const Uint8 *cyt;
 	/* R800メモリーページ(ページブレイクの確認用) */
 	Uint32 mempage;
 	/* 特殊用途割り込みベクタ */
