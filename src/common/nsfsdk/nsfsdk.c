@@ -9,7 +9,7 @@
 /* #define NSFSDKAPI __declspec(dllexport) */
 
 #include "nsfsdk.h"
-#include "nezplug.h"
+#include "nezvm/nezvm.h"
 
 typedef struct NSFSDK_TAG
 {

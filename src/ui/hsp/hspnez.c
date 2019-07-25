@@ -9,10 +9,10 @@
 #include "hspsdk/hspdll.h"
 /* Project headers */
 #include "common/nsfsdk/nsfsdk.h"
-#include "zlib/nez.h"
+#include "common/nez/nez.h"
 #include "snddrv/snddrv.h"
 #include "ui/version.h"
-#include "nezplug.h"
+#include "nezvm/nezvm.h"
 #include "ui/nezplug/Dialog.h"
 
 void NSFSDKAPI NSFSDK_LoadSetting(HNSF hnsf, char *file);

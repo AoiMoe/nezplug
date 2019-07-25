@@ -43,8 +43,8 @@ RSC=rc.exe
 MTL=midl.exe
 # ADD BASE MTL /nologo /D"NDEBUG" /mktyplib203 /tlb".\..\Release\nezplug.tlb" /win32
 # ADD MTL /nologo /D"NDEBUG" /mktyplib203 /tlb".\..\Release\nezplug.tlb" /win32
-# ADD BASE CPP /nologo /MT /W3 /GX /Ox /Ot /Gy /I "format" /I "device" /I "zlib" /I "cpu" /I "." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GF /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /I "format" /I "device" /I "zlib" /I "cpu" /I "." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GF /c
+# ADD BASE CPP /nologo /MT /W3 /GX /Ox /Ot /Gy /I "nezvm\machine" /I "nezvm\device" /I "nezvm\cpu" /I "common\nez" /I "zlib" /I "." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GF /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I "nezvm\machine" /I "nezvm\device" /I "nezvm\cpu" /I "common\nez" /I "zlib" /I "." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GF /c
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -69,8 +69,8 @@ LIB32=link.exe -lib
 MTL=midl.exe
 # ADD BASE MTL /nologo /D"_DEBUG" /mktyplib203 /tlb".\..\Debug\nezplug.tlb" /win32
 # ADD MTL /nologo /D"_DEBUG" /mktyplib203 /tlb".\..\Debug\nezplug.tlb" /win32
-# ADD BASE CPP /nologo /MTd /W4 /GX /ZI /Od /I "format" /I "device" /I "zlib" /I "cpu" /I "." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GZ /c
-# ADD CPP /nologo /MTd /W4 /GX /ZI /Od /I "format" /I "device" /I "zlib" /I "cpu" /I "." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GZ /c
+# ADD BASE CPP /nologo /MTd /W4 /GX /ZI /Od /I "nezvm\machine" /I "nezvm\device" /I "nezvm\cpu" /I "common\nez" /I "zlib" /I "." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GZ /c
+# ADD CPP /nologo /MTd /W4 /GX /ZI /Od /I "nezvm\machine" /I "nezvm\device" /I "nezvm\cpu" /I "common\nez" /I "zlib" /I "." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GZ /c
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
 BSC32=bscmake.exe
@@ -94,55 +94,55 @@ LIB32=link.exe -lib
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km2a03m.h
+SOURCE=.\nezvm\cpu\km6502\km2a03m.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km6280.h
+SOURCE=.\nezvm\cpu\km6502\km6280.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km6280m.h
+SOURCE=.\nezvm\cpu\km6502\km6280m.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km6502.h
+SOURCE=.\nezvm\cpu\km6502\km6502.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km6502cd.h
+SOURCE=.\nezvm\cpu\km6502\km6502cd.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km6502ct.h
+SOURCE=.\nezvm\cpu\km6502\km6502ct.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km6502ex.h
+SOURCE=.\nezvm\cpu\km6502\km6502ex.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km6502ft.h
+SOURCE=.\nezvm\cpu\km6502\km6502ft.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km6502m.h
+SOURCE=.\nezvm\cpu\km6502\km6502m.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km6502ot.h
+SOURCE=.\nezvm\cpu\km6502\km6502ot.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km65c02.h
+SOURCE=.\nezvm\cpu\km6502\km65c02.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\km65c02m.h
+SOURCE=.\nezvm\cpu\km6502\km65c02m.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\km6502\kmconfig.h
+SOURCE=.\nezvm\cpu\km6502\kmconfig.h
 # End Source File
 # End Group
 # Begin Group "z80"
@@ -150,81 +150,81 @@ SOURCE=.\cpu\km6502\kmconfig.h
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\cpu\kmz80\kmdmg.c
+SOURCE=.\nezvm\cpu\kmz80\kmdmg.c
 DEP_CPP_KMDMG=\
-	".\cpu\kmz80\kmevent.h"\
-	".\cpu\kmz80\kmtypes.h"\
-	".\cpu\kmz80\kmz80.h"\
-	".\cpu\kmz80\kmz80i.h"\
+	".\nezvm\cpu\kmz80\kmevent.h"\
+	".\nezvm\cpu\kmz80\kmtypes.h"\
+	".\nezvm\cpu\kmz80\kmz80.h"\
+	".\nezvm\cpu\kmz80\kmz80i.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\kmz80\kmevent.c
+SOURCE=.\nezvm\cpu\kmz80\kmevent.c
 DEP_CPP_KMEVE=\
-	".\cpu\kmz80\kmevent.h"\
-	".\cpu\kmz80\kmtypes.h"\
+	".\nezvm\cpu\kmz80\kmevent.h"\
+	".\nezvm\cpu\kmz80\kmtypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\kmz80\kmevent.h
+SOURCE=.\nezvm\cpu\kmz80\kmevent.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\kmz80\kmr800.c
+SOURCE=.\nezvm\cpu\kmz80\kmr800.c
 DEP_CPP_KMR80=\
-	".\cpu\kmz80\kmevent.h"\
-	".\cpu\kmz80\kmtypes.h"\
-	".\cpu\kmz80\kmz80.h"\
-	".\cpu\kmz80\kmz80i.h"\
+	".\nezvm\cpu\kmz80\kmevent.h"\
+	".\nezvm\cpu\kmz80\kmtypes.h"\
+	".\nezvm\cpu\kmz80\kmz80.h"\
+	".\nezvm\cpu\kmz80\kmz80i.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\kmz80\kmtypes.h
+SOURCE=.\nezvm\cpu\kmz80\kmtypes.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\kmz80\kmz80.c
+SOURCE=.\nezvm\cpu\kmz80\kmz80.c
 DEP_CPP_KMZ80=\
-	".\cpu\kmz80\kmevent.h"\
-	".\cpu\kmz80\kmtypes.h"\
-	".\cpu\kmz80\kmz80.h"\
-	".\cpu\kmz80\kmz80i.h"\
+	".\nezvm\cpu\kmz80\kmevent.h"\
+	".\nezvm\cpu\kmz80\kmtypes.h"\
+	".\nezvm\cpu\kmz80\kmz80.h"\
+	".\nezvm\cpu\kmz80\kmz80i.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\kmz80\kmz80.h
+SOURCE=.\nezvm\cpu\kmz80\kmz80.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\kmz80\kmz80c.c
+SOURCE=.\nezvm\cpu\kmz80\kmz80c.c
 DEP_CPP_KMZ80C=\
-	".\cpu\kmz80\kmevent.h"\
-	".\cpu\kmz80\kmtypes.h"\
-	".\cpu\kmz80\kmz80.h"\
-	".\cpu\kmz80\kmz80i.h"\
+	".\nezvm\cpu\kmz80\kmevent.h"\
+	".\nezvm\cpu\kmz80\kmtypes.h"\
+	".\nezvm\cpu\kmz80\kmz80.h"\
+	".\nezvm\cpu\kmz80\kmz80i.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\kmz80\kmz80i.h
+SOURCE=.\nezvm\cpu\kmz80\kmz80i.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\kmz80\kmz80t.c
+SOURCE=.\nezvm\cpu\kmz80\kmz80t.c
 DEP_CPP_KMZ80T=\
-	".\cpu\kmz80\kmevent.h"\
-	".\cpu\kmz80\kmtypes.h"\
-	".\cpu\kmz80\kmz80.h"\
-	".\cpu\kmz80\kmz80i.h"\
+	".\nezvm\cpu\kmz80\kmevent.h"\
+	".\nezvm\cpu\kmz80\kmtypes.h"\
+	".\nezvm\cpu\kmz80\kmz80.h"\
+	".\nezvm\cpu\kmz80\kmz80i.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\cpu\kmz80\makeft.c
+SOURCE=.\nezvm\cpu\kmz80\makeft.c
 # End Source File
 # End Group
 # End Group
@@ -236,233 +236,233 @@ SOURCE=.\cpu\kmz80\makeft.c
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\device\nes\logtable.c
+SOURCE=.\nezvm\device\nes\logtable.c
 DEP_CPP_LOGTA=\
-	".\device\nes\logtable.h"\
-	".\nestypes.h"\
+	".\nezvm\device\nes\logtable.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\logtable.h
+SOURCE=.\nezvm\device\nes\logtable.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_apu.c
+SOURCE=.\nezvm\device\nes\s_apu.c
 DEP_CPP_S_APU=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\device\nes\logtable.h"\
-	".\device\nes\s_apu.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\nes\logtable.h"\
+	".\nezvm\device\nes\s_apu.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_apu.h
+SOURCE=.\nezvm\device\nes\s_apu.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_fds.c
+SOURCE=.\nezvm\device\nes\s_fds.c
 DEP_CPP_S_FDS=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\device\nes\s_fds.h"\
-	".\format\audiohandler.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\nes\s_fds.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_fds.h
+SOURCE=.\nezvm\device\nes\s_fds.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_fds1.c
+SOURCE=.\nezvm\device\nes\s_fds1.c
 DEP_CPP_S_FDS1=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\device\nes\logtable.h"\
-	".\device\nes\s_fds.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\nes\logtable.h"\
+	".\nezvm\device\nes\s_fds.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_fds2.c
+SOURCE=.\nezvm\device\nes\s_fds2.c
 DEP_CPP_S_FDS2=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\device\nes\logtable.h"\
-	".\device\nes\s_fds.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\nes\logtable.h"\
+	".\nezvm\device\nes\s_fds.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_fds3.c
+SOURCE=.\nezvm\device\nes\s_fds3.c
 DEP_CPP_S_FDS3=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\device\nes\logtable.h"\
-	".\device\nes\s_fds.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\nes\logtable.h"\
+	".\nezvm\device\nes\s_fds.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_fme7.c
+SOURCE=.\nezvm\device\nes\s_fme7.c
 DEP_CPP_S_FME=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\device\nes\logtable.h"\
-	".\device\nes\s_fme7.h"\
-	".\device\s_psg.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\nes\logtable.h"\
+	".\nezvm\device\nes\s_fme7.h"\
+	".\nezvm\device\s_psg.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_fme7.h
+SOURCE=.\nezvm\device\nes\s_fme7.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_mmc5.c
+SOURCE=.\nezvm\device\nes\s_mmc5.c
 DEP_CPP_S_MMC=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\device\nes\logtable.h"\
-	".\device\nes\s_mmc5.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\nes\logtable.h"\
+	".\nezvm\device\nes\s_mmc5.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_mmc5.h
+SOURCE=.\nezvm\device\nes\s_mmc5.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_n106.c
+SOURCE=.\nezvm\device\nes\s_n106.c
 DEP_CPP_S_N10=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\device\nes\logtable.h"\
-	".\device\nes\s_n106.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\nes\logtable.h"\
+	".\nezvm\device\nes\s_n106.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_n106.h
+SOURCE=.\nezvm\device\nes\s_n106.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_vrc6.c
+SOURCE=.\nezvm\device\nes\s_vrc6.c
 DEP_CPP_S_VRC=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\device\nes\logtable.h"\
-	".\device\nes\s_vrc6.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\nes\logtable.h"\
+	".\nezvm\device\nes\s_vrc6.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_vrc6.h
+SOURCE=.\nezvm\device\nes\s_vrc6.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_vrc7.c
+SOURCE=.\nezvm\device\nes\s_vrc7.c
 DEP_CPP_S_VRC7=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\device\nes\logtable.h"\
-	".\device\nes\s_vrc7.h"\
-	".\device\opl\s_opl.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\nes\logtable.h"\
+	".\nezvm\device\nes\s_vrc7.h"\
+	".\nezvm\device\opl\s_opl.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\nes\s_vrc7.h
+SOURCE=.\nezvm\device\nes\s_vrc7.h
 # End Source File
 # End Group
 # Begin Group "opll"
@@ -470,161 +470,161 @@ SOURCE=.\device\nes\s_vrc7.h
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\device\opl\s_deltat.c
+SOURCE=.\nezvm\device\opl\s_deltat.c
 DEP_CPP_S_DEL=\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\opl\s_deltat.h"\
-	".\device\s_logtbl.h"\
-	".\nestypes.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\opl\s_deltat.h"\
+	".\nezvm\device\s_logtbl.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\opl\s_deltat.h
+SOURCE=.\nezvm\device\opl\s_deltat.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\opl\s_opl.c
+SOURCE=.\nezvm\device\opl\s_opl.c
 DEP_CPP_S_OPL=\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\opl\ill\i_fmpac.h"\
-	".\device\opl\ill\i_fmunit.h"\
-	".\device\opl\ill\i_vrc7.h"\
-	".\device\opl\s_deltat.h"\
-	".\device\opl\s_opl.h"\
-	".\device\opl\s_opltbl.h"\
-	".\device\s_logtbl.h"\
-	".\nestypes.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\opl\ill\i_fmpac.h"\
+	".\nezvm\device\opl\ill\i_fmunit.h"\
+	".\nezvm\device\opl\ill\i_vrc7.h"\
+	".\nezvm\device\opl\s_deltat.h"\
+	".\nezvm\device\opl\s_opl.h"\
+	".\nezvm\device\opl\s_opltbl.h"\
+	".\nezvm\device\s_logtbl.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\opl\s_opl.h
+SOURCE=.\nezvm\device\opl\s_opl.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\opl\s_opltbl.c
+SOURCE=.\nezvm\device\opl\s_opltbl.c
 DEP_CPP_S_OPLT=\
-	".\device\opl\s_opltbl.h"\
-	".\device\s_logtbl.h"\
-	".\nestypes.h"\
+	".\nezvm\device\opl\s_opltbl.h"\
+	".\nezvm\device\s_logtbl.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\opl\s_opltbl.h
+SOURCE=.\nezvm\device\opl\s_opltbl.h
 # End Source File
 # End Group
 # Begin Source File
 
-SOURCE=.\device\divfix.h
+SOURCE=.\nezvm\device\divfix.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\kmsnddev.h
+SOURCE=.\nezvm\device\kmsnddev.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_dmg.c
+SOURCE=.\nezvm\device\s_dmg.c
 DEP_CPP_S_DMG=\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\s_dmg.h"\
-	".\device\s_logtbl.h"\
-	".\nestypes.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\s_dmg.h"\
+	".\nezvm\device\s_logtbl.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_dmg.h
+SOURCE=.\nezvm\device\s_dmg.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_hes.c
+SOURCE=.\nezvm\device\s_hes.c
 DEP_CPP_S_HES=\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\s_hes.h"\
-	".\device\s_logtbl.h"\
-	".\nestypes.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\s_hes.h"\
+	".\nezvm\device\s_logtbl.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_hes.h
+SOURCE=.\nezvm\device\s_hes.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_hesad.c
+SOURCE=.\nezvm\device\s_hesad.c
 DEP_CPP_S_HESA=\
-	".\device\kmsnddev.h"\
-	".\device\opl\s_deltat.h"\
-	".\device\s_hesad.h"\
-	".\nestypes.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\opl\s_deltat.h"\
+	".\nezvm\device\s_hesad.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_hesad.h
+SOURCE=.\nezvm\device\s_hesad.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_logtbl.c
+SOURCE=.\nezvm\device\s_logtbl.c
 DEP_CPP_S_LOG=\
-	".\device\s_logtbl.h"\
-	".\nestypes.h"\
+	".\nezvm\device\s_logtbl.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_logtbl.h
+SOURCE=.\nezvm\device\s_logtbl.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_psg.c
+SOURCE=.\nezvm\device\s_psg.c
 DEP_CPP_S_PSG=\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\s_logtbl.h"\
-	".\device\s_psg.h"\
-	".\nestypes.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\s_logtbl.h"\
+	".\nezvm\device\s_psg.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_psg.h
+SOURCE=.\nezvm\device\s_psg.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_scc.c
+SOURCE=.\nezvm\device\s_scc.c
 DEP_CPP_S_SCC=\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\s_logtbl.h"\
-	".\device\s_scc.h"\
-	".\nestypes.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\s_logtbl.h"\
+	".\nezvm\device\s_scc.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_scc.h
+SOURCE=.\nezvm\device\s_scc.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_sng.c
+SOURCE=.\nezvm\device\s_sng.c
 DEP_CPP_S_SNG=\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\s_logtbl.h"\
-	".\device\s_sng.h"\
-	".\nestypes.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\s_logtbl.h"\
+	".\nezvm\device\s_sng.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\device\s_sng.h
+SOURCE=.\nezvm\device\s_sng.h
 # End Source File
 # End Group
 # Begin Group "format"
@@ -632,286 +632,296 @@ SOURCE=.\device\s_sng.h
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\format\audiohandler.h
+SOURCE=.\nezvm\machine\audiohandler.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\audiosys.c
+SOURCE=.\nezvm\machine\audiosys.c
 DEP_CPP_AUDIO=\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\audiosys.h
+SOURCE=.\nezvm\machine\audiosys.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\handler.c
+SOURCE=.\nezvm\machine\handler.c
 DEP_CPP_HANDL=\
-	".\format\audiohandler.h"\
-	".\format\handler.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\handler.h
+SOURCE=.\nezvm\machine\handler.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_gbr.c
+SOURCE=.\nezvm\machine\m_gbr.c
 DEP_CPP_M_GBR=\
-	".\cpu\kmz80\kmevent.h"\
-	".\cpu\kmz80\kmtypes.h"\
-	".\cpu\kmz80\kmz80.h"\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\s_dmg.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_gbr.h"\
-	".\format\songinfo.h"\
-	".\neserr.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\kmz80\kmevent.h"\
+	".\nezvm\cpu\kmz80\kmtypes.h"\
+	".\nezvm\cpu\kmz80\kmz80.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\s_dmg.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_gbr.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\neserr.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_gbr.h
+SOURCE=.\nezvm\machine\m_gbr.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_hes.c
+SOURCE=.\nezvm\machine\m_hes.c
 DEP_CPP_M_HES=\
-	".\cpu\km6502\km6280.h"\
-	".\cpu\km6502\km6280m.h"\
-	".\cpu\km6502\km6502cd.h"\
-	".\cpu\km6502\km6502ct.h"\
-	".\cpu\km6502\km6502ex.h"\
-	".\cpu\km6502\km6502ft.h"\
-	".\cpu\km6502\km6502ot.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\cpu\kmz80\kmevent.h"\
-	".\cpu\kmz80\kmtypes.h"\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\s_hes.h"\
-	".\device\s_hesad.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_hes.h"\
-	".\format\songinfo.h"\
-	".\neserr.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6280.h"\
+	".\nezvm\cpu\km6502\km6280m.h"\
+	".\nezvm\cpu\km6502\km6502cd.h"\
+	".\nezvm\cpu\km6502\km6502ct.h"\
+	".\nezvm\cpu\km6502\km6502ex.h"\
+	".\nezvm\cpu\km6502\km6502ft.h"\
+	".\nezvm\cpu\km6502\km6502ot.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\cpu\kmz80\kmevent.h"\
+	".\nezvm\cpu\kmz80\kmtypes.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\s_hes.h"\
+	".\nezvm\device\s_hesad.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_hes.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\neserr.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_hes.h
+SOURCE=.\nezvm\machine\m_hes.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_kss.c
+SOURCE=.\nezvm\machine\m_kss.c
 DEP_CPP_M_KSS=\
-	".\cpu\kmz80\kmevent.h"\
-	".\cpu\kmz80\kmtypes.h"\
-	".\cpu\kmz80\kmz80.h"\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\opl\s_opl.h"\
-	".\device\s_psg.h"\
-	".\device\s_scc.h"\
-	".\device\s_sng.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_kss.h"\
-	".\format\songinfo.h"\
-	".\neserr.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\kmz80\kmevent.h"\
+	".\nezvm\cpu\kmz80\kmtypes.h"\
+	".\nezvm\cpu\kmz80\kmz80.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\opl\s_opl.h"\
+	".\nezvm\device\s_psg.h"\
+	".\nezvm\device\s_scc.h"\
+	".\nezvm\device\s_sng.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_kss.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\neserr.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_kss.h
+SOURCE=.\nezvm\machine\m_kss.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_nsd.c
+SOURCE=.\nezvm\machine\m_nsd.c
 DEP_CPP_M_NSD=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsd.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\neserr.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsd.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\neserr.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_nsd.h
+SOURCE=.\nezvm\machine\m_nsd.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_nsf.c
+SOURCE=.\nezvm\machine\m_nsf.c
 DEP_CPP_M_NSF=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\device\nes\s_apu.h"\
-	".\device\nes\s_fds.h"\
-	".\device\nes\s_fme7.h"\
-	".\device\nes\s_mmc5.h"\
-	".\device\nes\s_n106.h"\
-	".\device\nes\s_vrc6.h"\
-	".\device\nes\s_vrc7.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\neserr.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\nes\s_apu.h"\
+	".\nezvm\device\nes\s_fds.h"\
+	".\nezvm\device\nes\s_fme7.h"\
+	".\nezvm\device\nes\s_mmc5.h"\
+	".\nezvm\device\nes\s_n106.h"\
+	".\nezvm\device\nes\s_vrc6.h"\
+	".\nezvm\device\nes\s_vrc7.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\neserr.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_nsf.h
+SOURCE=.\nezvm\machine\m_nsf.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_sgc.c
+SOURCE=.\nezvm\machine\m_sgc.c
 DEP_CPP_M_SGC=\
-	".\cpu\kmz80\kmevent.h"\
-	".\cpu\kmz80\kmtypes.h"\
-	".\cpu\kmz80\kmz80.h"\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\opl\s_opl.h"\
-	".\device\s_sng.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_sgc.h"\
-	".\format\songinfo.h"\
-	".\neserr.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\kmz80\kmevent.h"\
+	".\nezvm\cpu\kmz80\kmtypes.h"\
+	".\nezvm\cpu\kmz80\kmz80.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\opl\s_opl.h"\
+	".\nezvm\device\s_sng.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_sgc.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\neserr.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_sgc.h
+SOURCE=.\nezvm\machine\m_sgc.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_zxay.c
+SOURCE=.\nezvm\machine\m_zxay.c
 DEP_CPP_M_ZXA=\
-	".\cpu\kmz80\kmevent.h"\
-	".\cpu\kmz80\kmtypes.h"\
-	".\cpu\kmz80\kmz80.h"\
-	".\device\divfix.h"\
-	".\device\kmsnddev.h"\
-	".\device\s_psg.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_zxay.h"\
-	".\format\songinfo.h"\
-	".\neserr.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\kmz80\kmevent.h"\
+	".\nezvm\cpu\kmz80\kmtypes.h"\
+	".\nezvm\cpu\kmz80\kmz80.h"\
+	".\nezvm\device\divfix.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\device\s_psg.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_zxay.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\neserr.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\m_zxay.h
+SOURCE=.\nezvm\machine\m_zxay.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\nezplug.c
-DEP_CPP_NEZPL=\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_gbr.h"\
-	".\format\m_hes.h"\
-	".\format\m_kss.h"\
-	".\format\m_nsd.h"\
-	".\format\m_nsf.h"\
-	".\format\m_sgc.h"\
-	".\format\m_zxay.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\neserr.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
-	
-# End Source File
-# Begin Source File
-
-SOURCE=.\format\nsf6502.c
+SOURCE=.\nezvm\machine\nsf6502.c
 DEP_CPP_NSF65=\
-	".\cpu\km6502\km2a03m.h"\
-	".\cpu\km6502\km6502.h"\
-	".\cpu\km6502\km6502cd.h"\
-	".\cpu\km6502\km6502ct.h"\
-	".\cpu\km6502\km6502ex.h"\
-	".\cpu\km6502\km6502ft.h"\
-	".\cpu\km6502\km6502ot.h"\
-	".\cpu\km6502\kmconfig.h"\
-	".\device\kmsnddev.h"\
-	".\format\audiohandler.h"\
-	".\format\audiosys.h"\
-	".\format\handler.h"\
-	".\format\m_nsf.h"\
-	".\format\nsf6502.h"\
-	".\format\songinfo.h"\
-	".\neserr.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\cpu\km6502\km2a03m.h"\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\km6502cd.h"\
+	".\nezvm\cpu\km6502\km6502ct.h"\
+	".\nezvm\cpu\km6502\km6502ex.h"\
+	".\nezvm\cpu\km6502\km6502ft.h"\
+	".\nezvm\cpu\km6502\km6502ot.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\neserr.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\nsf6502.h
+SOURCE=.\nezvm\machine\nsf6502.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\songinfo.c
+SOURCE=.\nezvm\machine\songinfo.c
 DEP_CPP_SONGI=\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
 	
 # End Source File
 # Begin Source File
 
-SOURCE=.\format\songinfo.h
+SOURCE=.\nezvm\machine\songinfo.h
+# End Source File
+# End Group
+# Begin Group "nez"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\common\nez\memzip.c
+DEP_CPP_MEMZI=\
+	".\common\nez\memzip.h"\
+	".\zlib\zconf.h"\
+	".\zlib\zlib.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\common\nez\memzip.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\common\nez\nez.c
+DEP_CPP_NEZ_C=\
+	".\common\nez\memzip.h"\
+	".\common\nez\nez.h"\
+	".\common\nez\nezuzext.h"\
+	
+# End Source File
+# Begin Source File
+
+SOURCE=.\common\nez\nez.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\common\nez\nezuzext.h
 # End Source File
 # End Group
 # Begin Group "zlib"
@@ -992,36 +1002,6 @@ SOURCE=.\zlib\inftrees.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\zlib\memzip.c
-DEP_CPP_MEMZI=\
-	".\zlib\memzip.h"\
-	".\zlib\zconf.h"\
-	".\zlib\zlib.h"\
-	
-# End Source File
-# Begin Source File
-
-SOURCE=.\zlib\memzip.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\zlib\nez.c
-DEP_CPP_NEZ_C=\
-	".\zlib\memzip.h"\
-	".\zlib\nez.h"\
-	".\zlib\nezuzext.h"\
-	
-# End Source File
-# Begin Source File
-
-SOURCE=.\zlib\nez.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\zlib\nezuzext.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\zlib\uncompr.c
 DEP_CPP_UNCOM=\
 	".\zlib\zconf.h"\
@@ -1052,19 +1032,39 @@ SOURCE=.\zlib\zutil.h
 # End Group
 # Begin Source File
 
-SOURCE=.\neserr.h
+SOURCE=.\nezvm\neserr.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\nestypes.h
+SOURCE=.\nezvm\nestypes.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\nezplug.h
+SOURCE=.\nezvm\nezvm.c
+DEP_CPP_NEZPL=\
+	".\nezvm\cpu\km6502\km6502.h"\
+	".\nezvm\cpu\km6502\kmconfig.h"\
+	".\nezvm\device\kmsnddev.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\audiosys.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\m_gbr.h"\
+	".\nezvm\machine\m_hes.h"\
+	".\nezvm\machine\m_kss.h"\
+	".\nezvm\machine\m_nsd.h"\
+	".\nezvm\machine\m_nsf.h"\
+	".\nezvm\machine\m_sgc.h"\
+	".\nezvm\machine\m_zxay.h"\
+	".\nezvm\machine\nsf6502.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\neserr.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
+	
 # End Source File
 # Begin Source File
 
-SOURCE=.\ui\version.h
+SOURCE=.\nezvm\nezvm.h
 # End Source File
 # End Target
 # End Project

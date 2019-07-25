@@ -42,8 +42,8 @@ RSC=rc.exe
 # PROP Intermediate_Dir "..\Release\npnez"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
-# ADD BASE CPP /nologo /MD /W3 /GX /Ox /Ot /Gy /I "format" /I "device" /I "cpu" /I "." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GF /c
-# ADD CPP /nologo /MD /W3 /GX /O2 /I "format" /I "device" /I "cpu" /I "." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GF /c
+# ADD BASE CPP /nologo /MD /W3 /GX /Ox /Ot /Gy /I "nezvm\machine" /I "nezvm\device" /I "nezvm\cpu" /I "." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GF /c
+# ADD CPP /nologo /MD /W3 /GX /O2 /I "nezvm\machine" /I "nezvm\device" /I "nezvm\cpu" /I "." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GF /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
@@ -74,8 +74,8 @@ PostBuild_Cmds=@rem ä¬ã´Ç…çáÇÌÇπÇƒÅI copy "$(TargetPath)" "C:\2\lnsf03\"
 # PROP Intermediate_Dir "..\Debug\npnez"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
-# ADD BASE CPP /nologo /MDd /W3 /GX /ZI /Od /I "format" /I "device" /I "cpu" /I "." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GZ /c
-# ADD CPP /nologo /MDd /W3 /GX /ZI /Od /I "format" /I "device" /I "cpu" /I "." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GZ /c
+# ADD BASE CPP /nologo /MDd /W3 /GX /ZI /Od /I "nezvm\machine" /I "nezvm\device" /I "nezvm\cpu" /I "." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GZ /c
+# ADD CPP /nologo /MDd /W3 /GX /ZI /Od /I "nezvm\machine" /I "nezvm\device" /I "nezvm\cpu" /I "." /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "_MBCS" /FR /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
@@ -109,16 +109,16 @@ SOURCE=.\ui\hsp\hspnez.c
 DEP_CPP_HSPNE=\
 	".\common\nsfsdk\nsfsdk.h"\
 	".\common\win32\win32l.h"\
-	".\format\audiohandler.h"\
-	".\format\handler.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	".\snddrv\snddrv.h"\
 	".\ui\hsp\hspsdk\hspdll.h"\
 	".\ui\nezplug\Dialog.h"\
 	".\ui\version.h"\
-	".\zlib\nez.h"\
+	".\common\nez\nez.h"\
 	
 # End Source File
 # Begin Source File
@@ -248,11 +248,11 @@ SOURCE=.\common\win32\win32l.h
 SOURCE=.\common\nsfsdk\nsfsdk.c
 DEP_CPP_NSFSD=\
 	".\common\nsfsdk\nsfsdk.h"\
-	".\format\audiohandler.h"\
-	".\format\handler.h"\
-	".\format\songinfo.h"\
-	".\nestypes.h"\
-	".\nezplug.h"\
+	".\nezvm\machine\audiohandler.h"\
+	".\nezvm\machine\handler.h"\
+	".\nezvm\machine\songinfo.h"\
+	".\nezvm\nestypes.h"\
+	".\nezvm\nezvm.h"\
 	".\ui\nezplug\Dialog.h"\
 	
 # End Source File
