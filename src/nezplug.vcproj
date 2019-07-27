@@ -520,6 +520,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\nezvm\machine\m_sgc.c"
+				>
+			</File>
+			<File
+				RelativePath=".\nezvm\machine\m_sgc.h"
+				>
+			</File>
+			<File
 				RelativePath=".\nezvm\machine\m_zxay.c"
 				>
 			</File>
