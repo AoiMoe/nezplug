@@ -3,6 +3,7 @@
 #undef NOGDI
 #undef NOFONTSIG	/* WIN32SDK bug */
 #include <windows.h>
+#include <winuser.h>
 /* ANSI standard headers */
 #include <stdlib.h>
 /* Libraries headers */
@@ -346,14 +347,14 @@ static void SetSettingString(LPCSTR lpKey, LPCSTR lpStr, char *file)
 static int GetSettingInt(LPCSTR lpKey, int iDefault, char *file)
 {
 	char buf[128], dbuf[128];
-	wsprintf(dbuf, "%d", iDefault);
+	wsprintfA(dbuf, "%d", iDefault);
 	GetPrivateProfileString("NEZplug", lpKey, dbuf, buf, sizeof(buf), file);
 	return atoi(buf);
 }
 static void SetSettingInt(LPCSTR lpKey, int iInt, char *file)
 {
 	char buf[128];
-	wsprintf(buf, "%d", iInt);
+	wsprintfA(buf, "%d", iInt);
 	WritePrivateProfileString("NEZplug", lpKey, buf, file);
 }
 
@@ -434,7 +435,7 @@ void NSFSDKAPI NSFSDK_LoadSetting(HNSF hnsf, char *file)
 		if (frequency < 8000) frequency = 44100;
 		if (frequency > 192000) frequency = 44100;
 		SetSettingInt("Frequency", frequency, file);
-		NEZSetFrequency(hnsf->ctx, frequency);
+		NSFSDK_SetFrequency(hnsf, frequency);
 	}
 /*	{
 		int channel;
@@ -442,13 +443,13 @@ void NSFSDKAPI NSFSDK_LoadSetting(HNSF hnsf, char *file)
 		if (channel < 1) channel = 1;
 		if (channel > 2) channel = 2;
 		SetSettingInt("Channel", channel, file);
-		NEZSetChannel(hnsf->ctx, channel);
+		NSFSDK_SetFrequency(hnsf, channel);
 	}
 */	{
 		int filtertype;
 		filtertype = GetSettingInt("FilterType", 0, file);
 		SetSettingInt("FilterType", filtertype, file);
-		NEZSetFilter(hnsf->ctx, filtertype);
+		NSFSDK_SetFrequency(hnsf, filtertype);
 	}
 
 }
