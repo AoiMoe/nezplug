@@ -2,7 +2,7 @@
 #include "common/win32/win32l.h"
 #undef NOUSER
 #include <windows.h>
-#include "../../nezplug.h"
+#include "../../nezvm/nezvm.h"
 #include "kmp_com.h"
 #include "../version.h"
 

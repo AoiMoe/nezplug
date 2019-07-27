@@ -49,7 +49,7 @@
 				Optimization="3"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="1"
-				AdditionalIncludeDirectories="format;device;cpu;."
+				AdditionalIncludeDirectories="nezvm\machine;nezvm\device;nezvm\cpu;."
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -141,7 +141,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="format;device;cpu;."
+				AdditionalIncludeDirectories="nezvm\machine;nezvm\device;nezvm\cpu;."
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -204,6 +204,54 @@
 		<Filter
 			Name="ui"
 			>
+			<File
+				RelativePath=".\ui\nezplug\ChMask.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\ChMask.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\Dialog.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\Dialog.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\Dump.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\Dump.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\FileInfo.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\FileInfo.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\MemView.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\MemView.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\IOView.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\IOView.h"
+				>
+			</File>
 			<Filter
 				Name="winamp"
 				>
@@ -232,15 +280,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\ui\winamp\MemView.c"
-					>
-				</File>
-				<File
-					RelativePath=".\ui\winamp\MemView.h"
-					>
-				</File>
-				<File
-					RelativePath=".\ui\winamp\nezplug.rc"
+					RelativePath=".\ui\nezplug\nezplug.rc"
 					>
 				</File>
 				<File
@@ -253,14 +293,6 @@
 				</File>
 				<File
 					RelativePath=".\ui\winamp\sequencer.h"
-					>
-				</File>
-				<File
-					RelativePath=".\ui\winamp\SongInfo.c"
-					>
-				</File>
-				<File
-					RelativePath=".\ui\winamp\SongInfo.h"
 					>
 				</File>
 				<Filter

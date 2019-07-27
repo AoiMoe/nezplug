@@ -3,17 +3,25 @@
 #undef NOGDI
 #undef NOFONTSIG	/* WIN32SDK bug */
 #include <windows.h>
+#include <winuser.h>
 /* ANSI standard headers */
 #include <stdlib.h>
 /* Libraries headers */
 #include "hspsdk/hspdll.h"
 /* Project headers */
 #include "common/nsfsdk/nsfsdk.h"
-#include "zlib/nez.h"
+#include "common/nez/nez.h"
 #include "snddrv/snddrv.h"
 #include "ui/version.h"
-#include "nezplug.h"
+#include "nezvm/nezvm.h"
 #include "ui/nezplug/Dialog.h"
+
+void NSFSDKAPI NSFSDK_LoadSetting(HNSF hnsf, char *file);
+void NSFSDKAPI NSFSDK_OpenFileInfoDlg(HINSTANCE p1, HWND p2);
+void NSFSDKAPI NSFSDK_OpenMemViewDlg(HINSTANCE p1, HWND p2);
+void NSFSDKAPI NSFSDK_OpenChMaskDlg(HINSTANCE p1, HWND p2);
+void NSFSDKAPI NSFSDK_OpenIOViewDlg(HINSTANCE p1, HWND p2);
+void NSFSDKAPI NSFSDK_OpenDumpDlg(HINSTANCE p1, HWND p2);
 
 static struct HSPXXX_T
 {
@@ -301,3 +309,147 @@ BOOL WINAPI HSPNSFOpenDumpDlg(BMSCR *p1, int p2, int p3, int p4)
 	return 0;
 }
 
+/* glue - these seem unnecessary, but somehow exported. */
+void NSFSDKAPI NSFSDK_OpenFileInfoDlg(HINSTANCE p1, HWND p2)
+{
+	NEZFileInfoDlg(p1, p2);
+}
+
+void NSFSDKAPI NSFSDK_OpenMemViewDlg(HINSTANCE p1, HWND p2)
+{
+	NEZMemViewDlg(p1, p2);
+}
+
+void NSFSDKAPI NSFSDK_OpenChMaskDlg(HINSTANCE p1, HWND p2)
+{
+	NEZChMaskDlg(p1, p2);
+}
+
+void NSFSDKAPI NSFSDK_OpenIOViewDlg(HINSTANCE p1, HWND p2)
+{
+	NEZIOViewDlg(p1, p2);
+}
+
+void NSFSDKAPI NSFSDK_OpenDumpDlg(HINSTANCE p1, HWND p2)
+{
+	NEZDumpDlg(p1, p2);
+}
+
+static void GetSettingString(LPCSTR lpKey, LPCSTR lpDefault, LPSTR lpBuf, DWORD nSize, char *file)
+{
+	GetPrivateProfileString("NEZplug", lpKey, lpDefault, lpBuf, nSize, file);
+}
+static void SetSettingString(LPCSTR lpKey, LPCSTR lpStr, char *file)
+{
+	WritePrivateProfileString("NEZplug", lpKey, lpStr, file);
+}
+
+static int GetSettingInt(LPCSTR lpKey, int iDefault, char *file)
+{
+	char buf[128], dbuf[128];
+	wsprintfA(dbuf, "%d", iDefault);
+	GetPrivateProfileString("NEZplug", lpKey, dbuf, buf, sizeof(buf), file);
+	return atoi(buf);
+}
+static void SetSettingInt(LPCSTR lpKey, int iInt, char *file)
+{
+	char buf[128];
+	wsprintfA(buf, "%d", iInt);
+	WritePrivateProfileString("NEZplug", lpKey, buf, file);
+}
+
+void NSFSDKAPI NSFSDK_LoadSetting(HNSF hnsf, char *file)
+{
+	if (hnsf == 0) return;
+	if (file == 0) return;
+
+	{
+		extern int NSF_noise_random_reset;
+		NSF_noise_random_reset  = GetSettingInt("NSFNoiseRandomReset", 0, file);
+		SetSettingInt("NSFNoiseRandomReset", NSF_noise_random_reset, file);
+	}
+	{
+		extern int Namco106_Realmode;
+		Namco106_Realmode = GetSettingInt("Namco106RealMode", 1, file);
+		SetSettingInt("Namco106RealMode", Namco106_Realmode, file);
+	}
+	{
+		extern int Namco106_Volume;
+		Namco106_Volume = GetSettingInt("Namco106Volume", 16, file);
+		SetSettingInt("Namco106Volume", Namco106_Volume, file);
+	}
+	{
+		extern int NSF_2A03Type;
+		NSF_2A03Type  = GetSettingInt("2A03Type", 1, file);
+		SetSettingInt("2A03Type", NSF_2A03Type, file);
+	}
+	{
+		extern int FDS_RealMode;
+		FDS_RealMode = GetSettingInt("FDSRealMode", 3, file);
+		SetSettingInt("FDSRealMode", FDS_RealMode, file);
+	}
+	{
+		extern int GBAMode;
+		GBAMode = GetSettingInt("GBAMode", 0, file);
+		SetSettingInt("GBAMode", GBAMode, file);
+	}
+	{
+		extern int LowPassFilterLevel;
+		LowPassFilterLevel = GetSettingInt("LowPassFilterLevel", 16, file);
+		if (LowPassFilterLevel <  0) LowPassFilterLevel =  0;
+		if (LowPassFilterLevel > 32) LowPassFilterLevel = 32;
+		SetSettingInt("LowPassFilterLevel", LowPassFilterLevel, file);
+	}
+	{
+		extern int NESAPUVolume;
+		NESAPUVolume = GetSettingInt("NESAPUVolume", 64, file);
+		if (NESAPUVolume < 0) NESAPUVolume =  0;
+		if (NESAPUVolume > 255) NESAPUVolume = 255;
+		SetSettingInt("NESAPUVolume", NESAPUVolume, file);
+	}
+	{
+		extern int NESRealDAC;
+		NESRealDAC = GetSettingInt("NESRealDAC", 1, file);
+		SetSettingInt("NESRealDAC", NESRealDAC, file);
+	}
+	{
+		extern int MSXPSGType;
+		MSXPSGType = GetSettingInt("MSXPSGType", 1, file);
+		SetSettingInt("MSXPSGType", MSXPSGType, file);
+	}
+	{
+		extern int MSXPSGVolume;
+		MSXPSGVolume = GetSettingInt("MSXPSGVolume", 64, file);
+		if (MSXPSGVolume < 0) MSXPSGVolume =  0;
+		if (MSXPSGVolume > 255) MSXPSGVolume = 255;
+		SetSettingInt("MSXPSGVolume", MSXPSGVolume, file);
+	}
+	{
+		extern char ColecoBIOSFilePath[0x200];
+		GetSettingString("ColecoBIOSFilePath", "", ColecoBIOSFilePath, sizeof(ColecoBIOSFilePath), file);
+		SetSettingString("ColecoBIOSFilePath", ColecoBIOSFilePath, file);
+	}
+	{
+		int frequency;
+		frequency = GetSettingInt("Frequency", 44100, file);
+		if (frequency < 8000) frequency = 44100;
+		if (frequency > 192000) frequency = 44100;
+		SetSettingInt("Frequency", frequency, file);
+		NSFSDK_SetFrequency(hnsf, frequency);
+	}
+/*	{
+		int channel;
+		channel = GetSettingInt("Channel", 2, file);
+		if (channel < 1) channel = 1;
+		if (channel > 2) channel = 2;
+		SetSettingInt("Channel", channel, file);
+		NSFSDK_SetFrequency(hnsf, channel);
+	}
+*/	{
+		int filtertype;
+		filtertype = GetSettingInt("FilterType", 0, file);
+		SetSettingInt("FilterType", filtertype, file);
+		NSFSDK_SetFrequency(hnsf, filtertype);
+	}
+
+}

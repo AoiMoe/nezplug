@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 
-#include "nezplug.h"
+#include "nezvm/nezvm.h"
 //#include "common/nsfsdk/nsfsdk.h"
 
 /* Project headers */
