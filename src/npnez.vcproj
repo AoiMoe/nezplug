@@ -201,6 +201,54 @@
 		<Filter
 			Name="ui"
 			>
+			<File
+				RelativePath=".\ui\nezplug\ChMask.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\ChMask.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\Dialog.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\Dialog.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\Dump.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\Dump.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\FileInfo.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\FileInfo.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\MemView.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\MemView.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\IOView.c"
+				>
+			</File>
+			<File
+				RelativePath=".\ui\nezplug\IOView.h"
+				>
+			</File>
 			<Filter
 				Name="hsp"
 				>
