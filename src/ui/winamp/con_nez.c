@@ -29,7 +29,7 @@ extern "C" {
 
 /* Project headers */
 #include "con_nez.h"
-#include "common/win32/rc/nezplug.rh"
+#include "ui/nezplug/resource.h"
 #include "common/cso.h"
 
 #ifdef __cplusplus

@@ -5,6 +5,7 @@
 #define IDC_COPY                        3
 #define IDD_SONGINFO                    100
 #define IDC_LABEL401                    101
+#define IDD_NEZSONGNO                   101
 #define IDC_LABEL402                    102
 #define IDC_TITLE                       103
 #define IDC_LABEL404                    104
@@ -124,6 +125,11 @@
 #define IDC_YM2413_TCY                  2056
 #define IDC_ADPCM_CH1                   2057
 #define IDC_MSX_DA                      2058
+#define IDC_NEZSONG                     3000
+#define IDC_NEZSONGSPIN                 3001
+#define IDC_NEZSONGM10                  3002
+#define IDC_NEZSONGP10                  3003
+#define IDC_NEZNUMSONGS                 3004
 #define IDC_STATIC                      -1
 
 // Next default values for new objects

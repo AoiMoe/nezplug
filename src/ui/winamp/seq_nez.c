@@ -20,7 +20,6 @@
 /* Project headers */
 #include "con_nez.h"
 #include "sequencer.h"
-#include "common/win32/rc/nezplug.rh"
 
 #include "ui/nezplug/Dialog.h"
 

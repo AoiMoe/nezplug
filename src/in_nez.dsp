@@ -118,7 +118,6 @@ SOURCE=.\ui\winamp\minisdk\wafe.h
 SOURCE=.\ui\winamp\con_nez.c
 DEP_CPP_CON_N=\
 	".\common\cso.h"\
-	".\common\win32\rc\nezplug.rh"\
 	".\ui\version.h"\
 	".\ui\winamp\con_nez.h"\
 	".\ui\winamp\in_nez.h"\
@@ -160,7 +159,6 @@ SOURCE=.\ui\winamp\in_xxx.h
 
 SOURCE=.\ui\winamp\seq_nez.c
 DEP_CPP_SEQ_N=\
-	".\common\win32\rc\nezplug.rh"\
 	".\nezvm\machine\audiohandler.h"\
 	".\nezvm\machine\handler.h"\
 	".\nezvm\machine\songinfo.h"\
